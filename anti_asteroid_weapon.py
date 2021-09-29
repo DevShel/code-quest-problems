@@ -4,7 +4,8 @@ import string
 # Practice Scenario:https://wma.contest.lmcodequestacademy.com/team/problems/9/text
 
 testCases = int(input())
-asteroidArray = []
+asteroidArray1 = []
+asteroidArray2 = []
 
 def distanceCalc(coordinates):
     if coordinates[0] == "-":
@@ -24,28 +25,44 @@ def distanceCalc(coordinates):
 for z in range(testCases):
     currentCase = z
     numAsteroids = int(input())
-    for i in range(numAsteroids):
-        asteroid = input()
-        str(asteroid)
-        asteroidArray.insert(currentCase,asteroid)
+    if (currentCase==0):
+        for i in range(numAsteroids):
+            asteroid = input()
+            str(asteroid)
+            asteroidArray1.append(asteroid)
+            i = i+1
+    if (currentCase==1):
+        for i in range(numAsteroids):
+            asteroid = input()
+            str(asteroid)
+            asteroidArray2.append(asteroid)
+            i = i+1
+    z = z+1
+
+
+for i in range((len(asteroidArray1))-1):
+    for i in range((len(asteroidArray1))-1):
+        if ((distanceCalc(asteroidArray1[i])) > (distanceCalc(asteroidArray1[i+1]))):
+            temp1 = asteroidArray1[i]
+            temp2 = asteroidArray1[i+1]
+            asteroidArray1[i] = temp2
+            asteroidArray1[i+1] = temp1
         i = i+1
-    z = i+1
 
-
-for i in range((len(asteroidArray))-1):
-    for i in range((len(asteroidArray))-1):
-        if ((distanceCalc(asteroidArray[i])) > (distanceCalc(asteroidArray[i+1]))):
-            temp1 = asteroidArray[i]
-            temp2 = asteroidArray[i+1]
-            asteroidArray[i] = temp2
-            asteroidArray[i+1] = temp1
+for i in range((len(asteroidArray2))-1):
+    for i in range((len(asteroidArray2))-1):
+        if ((distanceCalc(asteroidArray2[i])) > (distanceCalc(asteroidArray2[i+1]))):
+            temp1 = asteroidArray2[i]
+            temp2 = asteroidArray2[i+1]
+            asteroidArray2[i] = temp2
+            asteroidArray2[i+1] = temp1
         i = i+1
 
-for i in range(testCases):
-    for x in range(testCases):
-        print (asteroidArray[i][x])
-        x = x+1
+print("----------")
+for i in range(len(asteroidArray1)):
+    print(asteroidArray1[i])
     i = i+1
-    
-
+for i in range(len(asteroidArray2)):
+    print(asteroidArray2[i])
+    i = i+1
 
